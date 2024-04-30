@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d369319b-ddef-48b1-9003-f14ffb65e1a5" name="Changes" comment="20240429">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AlmacenDatosDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AlmacenDatosDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EmpleadoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EmpleadoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TestMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TestMySQL.java" afterDir="false" />
-    </list>
+    <list default="true" id="d369319b-ddef-48b1-9003-f14ffb65e1a5" name="Changes" comment="20240430" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,12 +27,12 @@
     &quot;assignee&quot;: &quot;MarcosGit2005&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/MarcosGit2005/databaseAccess_2324.git&quot;,
-    &quot;accountId&quot;: &quot;8bb08c9d-f960-4eae-84c9-e59d0d152f55&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MarcosGit2005/databaseAccess_2324.git",
+    "accountId": "94c306ef-ff58-4f0f-aa08-1ae8e288db10"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -82,7 +75,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714418376062</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20240430">
+      <option name="closed" value="true" />
+      <created>1714494088428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714494088428</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +91,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20240429" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240429" />
+    <MESSAGE value="20240430" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240430" />
   </component>
 </project>

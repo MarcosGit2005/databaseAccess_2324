@@ -55,7 +55,7 @@ public class MyDataSource {
             con = ds.getConnection();
 
             if (con!=null)
-                System.out.println("Conexión establecida.");
+                System.out.println("Conexión establecida a MySQL.");
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class MyDataSource {
             con = ds.getConnection();
 
             if (con!=null)
-                System.out.println("Conexión establecida.");
+                System.out.println("Conexión establecida a Oracle.");
         } catch (Exception e){
             e.printStackTrace();
         }

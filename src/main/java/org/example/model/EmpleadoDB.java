@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.MyDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
