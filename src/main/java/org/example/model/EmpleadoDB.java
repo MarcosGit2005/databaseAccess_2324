@@ -121,7 +121,7 @@ public class EmpleadoDB implements AlmacenDatosDB{
             e.printStackTrace();
         }
 
-        return null;
+        return getEmpleado(empleado.getDNI());
     }
 
     @Override
@@ -132,19 +132,19 @@ public class EmpleadoDB implements AlmacenDatosDB{
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM EMPLEADO WHERE DNI='"+DNI+"';")){
-            while (resultSet.next()){
-                empleado = new Empleado(
-                        resultSet.getInt("idEmpleado"),
-                        resultSet.getString("DNI"),
-                        resultSet.getString("nombre"),
-                        resultSet.getString("apellidos"),
-                        resultSet.getString("CP"),
-                        resultSet.getString("email"),
-                        resultSet.getDate("fechaNac"),
-                        resultSet.getString("cargo"),
-                        resultSet.getString("domicilio")
-                );
-            }
+            resultSet.next();
+            empleado = new Empleado(
+                    resultSet.getInt("idEmpleado"),
+                    resultSet.getString("DNI"),
+                    resultSet.getString("nombre"),
+                    resultSet.getString("apellidos"),
+                    resultSet.getString("CP"),
+                    resultSet.getString("email"),
+                    resultSet.getDate("fechaNac"),
+                    resultSet.getString("cargo"),
+                    resultSet.getString("domicilio")
+            );
+
         } catch (Exception e){
             e.printStackTrace();
         }
