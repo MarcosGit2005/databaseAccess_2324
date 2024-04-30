@@ -7,7 +7,7 @@ public interface AlmacenDatosDB {
     List<Empleado> getEmpleadosOracle();
     int updateEmpleadoMySQL(Empleado enpleado);
     int deleteEmpleadoMySQL(String DNI);
-    Empleado addEmpleado(Empleado empleado);
-    Empleado getEmpleado(String DNI);
-    boolean authenticate(String login,String password);
+    Empleado addEmpleadoMySQL(Empleado empleado);
+    Empleado getEmpleadoMySQL(String DNI);
+    boolean authenticateMySQL(String login,String password);
 }
