@@ -178,7 +178,7 @@ public class EmpleadoDB implements AlmacenDatosDB{
         List<Empleado> empleados = new ArrayList<>();
         DataSource dataSource = MyDataSource.getMySQLDataSource();
 
-        String query = "SELECT * FROM EMPLEADO WHERE CARGO = ?";
+        String query = "SELECT * FROM EMPLEADO WHERE CARGO = ?"; // Es mejor usar el prepared statement para no insertar codigo
         try(Connection connection = dataSource.getConnection();
             PreparedStatement ps = connection.prepareStatement(query)){
             ps.setString(1,cargo);
