@@ -5,5 +5,9 @@ import java.util.List;
 public interface AlmacenDatosDB {
     List<Empleado> getEmpleadosMySQL();
     List<Empleado> getEmpleadosOracle();
-    boolean updateEmpleado(Empleado enpleado);
+    int updateEmpleadoMySQL(Empleado enpleado);
+    int deleteEmpleadoMySQL(String DNI);
+    Empleado addEmpleado(Empleado empleado);
+    Empleado getEmpleado(String DNI);
+    boolean authenticate(String login,String password);
 }
