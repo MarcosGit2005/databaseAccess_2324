@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EmpleadoDB implements AlmacenDatosDB{
     @Override
-    public List<Empleado> getEmpleados() {
+    public List<Empleado> getEmpleadosMySQL() {
         List<Empleado> empleados = new ArrayList<>();
         DataSource dataSource = MyDataSource.getMySQLDataSource();
 
@@ -36,8 +36,35 @@ public class EmpleadoDB implements AlmacenDatosDB{
         } catch (Exception e){
             e.printStackTrace();
         }
+        return empleados;
+    }
+    public List<Empleado> getEmpleadosOracle() {
+        List<Empleado> empleados = new ArrayList<>();
+        DataSource dataSource = MyDataSource.getOracleDataSource();
 
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM EMPLEADO")){
 
+            Empleado empleado;
+            while (resultSet.next()){
+                empleado = new Empleado(
+                        resultSet.getInt("idEmpleado"),
+                        resultSet.getString("DNI"),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("apellidos"),
+                        resultSet.getString("CP"),
+                        resultSet.getString("email"),
+                        resultSet.getDate("fechaNac"),
+                        resultSet.getString("cargo"),
+                        resultSet.getString("domicilio")
+                );
+                empleados.add(empleado);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         return empleados;
     }
 }
