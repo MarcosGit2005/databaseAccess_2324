@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d369319b-ddef-48b1-9003-f14ffb65e1a5" name="Changes" comment="20240430" />
+    <list default="true" id="d369319b-ddef-48b1-9003-f14ffb65e1a5" name="Changes" comment="20240502">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TestMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TestMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/AlmacenDatosDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/AlmacenDatosDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/EmpleadoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/EmpleadoDB.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +33,12 @@
     &quot;assignee&quot;: &quot;MarcosGit2005&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MarcosGit2005/databaseAccess_2324.git",
-    "accountId": "94c306ef-ff58-4f0f-aa08-1ae8e288db10"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MarcosGit2005/databaseAccess_2324.git&quot;,
+    &quot;accountId&quot;: &quot;8bb08c9d-f960-4eae-84c9-e59d0d152f55&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -42,21 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.TestMySQL.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mrubiod/IdeaProjects/databaseAccess_2324&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TestMySQL.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mrubiod/IdeaProjects/databaseAccess_2324",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,6 +81,9 @@
       <option name="presentableId" value="Default" />
       <updated>1714413322149</updated>
       <workItem from="1714413681290" duration="4711000" />
+      <workItem from="1714660480834" duration="31000" />
+      <workItem from="1714660524435" duration="41000" />
+      <workItem from="1714660576200" duration="6726000" />
     </task>
     <task id="LOCAL-00001" summary="20240429">
       <option name="closed" value="true" />
@@ -123,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714501589207</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="20240502">
+      <option name="closed" value="true" />
+      <created>1714660151904</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714660151904</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +158,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20240429" />
     <MESSAGE value="20240430" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240430" />
+    <MESSAGE value="20240502" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240502" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="databaseAccess_2324" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file:///home/mrubiod/IdeaProjects/databaseAccess_2324}" type="462c0819:PsiDirectoryNode" />
+      </path>
+      <path>
+        <item name="databaseAccess_2324" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file:///home/mrubiod/IdeaProjects/databaseAccess_2324}" type="462c0819:PsiDirectoryNode" />
+        <item name="dir{file:///home/mrubiod/IdeaProjects/databaseAccess_2324/src}" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>

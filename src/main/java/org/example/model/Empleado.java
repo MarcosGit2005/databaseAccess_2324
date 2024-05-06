@@ -14,7 +14,7 @@ public class Empleado {
     private String domicilio;
 
     public Empleado(int idEmpleado, String DNI, String nombre, String apellidos, String CP, String email,
-                    Date fechaNac, String cargo, String domicilio) {
+                    Date fechaNac, String cargo, String domicilio){
         this.idEmpleado = idEmpleado;
         this.DNI = DNI;
         this.nombre = nombre;

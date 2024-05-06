@@ -3,10 +3,7 @@ package org.example.model;
 import org.example.MyDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,15 +125,45 @@ public class EmpleadoDB implements AlmacenDatosDB{
             return getEmpleadoMySQL(empleado.getDNI());
         return null;
     }
+    @Override
+    public Empleado addEmpleadoFuncionMySQL(Empleado empleado) {
+        DataSource ds = MyDataSource.getMySQLDataSource();
+        boolean added = false;
+
+        String query = "{ call addEmpleado(?,?,?,?,?,?,?,?,?) }";
+
+        try(Connection connection = ds.getConnection();
+            CallableStatement cs = connection.prepareCall(query)){
+            cs.setString(1,empleado.getDNI());
+            cs.setString(2,empleado.getNombre());
+            cs.setString(3,empleado.getApellidos());
+            cs.setString(4,empleado.getCP());
+            cs.setString(5,empleado.getEmail());
+            cs.setDate(6,empleado.getFechaNac());
+            cs.setString(7,empleado.getCargo());
+            cs.setString(8,empleado.getDomicilio());
+
+            int id = cs.getInt(9);
+
+            added = cs.executeUpdate()==1;
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return added?getEmpleadoMySQL(empleado.getDNI()):null;
+    }
 
     @Override
     public Empleado getEmpleadoMySQL(String DNI) {
         Empleado empleado = null;
         DataSource dataSource = MyDataSource.getMySQLDataSource();
 
+        String query = "SELECT * FROM EMPLEADO WHERE DNI = ? ";
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM EMPLEADO WHERE DNI='"+DNI+"'")){
+             PreparedStatement ps = connection.prepareStatement(query)){
+            ps.setString(1,DNI);
+
+            ResultSet resultSet = ps.executeQuery();
             resultSet.next();
             empleado = new Empleado(
                     resultSet.getInt(1),
@@ -159,12 +186,15 @@ public class EmpleadoDB implements AlmacenDatosDB{
     @Override
     public boolean authenticateMySQL(String login, String password) {
         boolean autenticado = false;
-        DataSource dataSource = MyDataSource.getOracleDataSource();
+        DataSource dataSource = MyDataSource.getMySQLDataSource();
 
+        String query = "SELECT COUNT(*) FROM EMPLEADO WHERE DNI = ? AND PASSWORD = ?";
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM EMPLEADO WHERE DNI='"+login+
-                     "' AND PASSWORD='"+password+"'")){
+             PreparedStatement ps = connection.prepareStatement(query)){
+            ps.setString(1,login);
+            ps.setString(2,password);
+
+            ResultSet resultSet = ps.executeQuery();
             resultSet.next();
             if (resultSet.getInt(1)>0)
                 autenticado=true;
@@ -173,8 +203,28 @@ public class EmpleadoDB implements AlmacenDatosDB{
         }
         return autenticado;
     }
+    @Override
+    public boolean authenticateFunctionMySQL(String login, String password){
+        boolean autenticado = false;
+        DataSource dataSource = MyDataSource.getMySQLDataSource();
 
-    public List<Empleado> getEmpleadosPorCargo(String cargo){
+        String query = "{ ? = call autenticar(?,?)}";
+        try (Connection connection = dataSource.getConnection();
+             CallableStatement cs = connection.prepareCall(query)){
+            cs.setString(2,login);
+            cs.setString(3,password);
+
+            ResultSet resultSet = cs.executeQuery();
+            resultSet.next();
+            if (resultSet.getInt(1)>0)
+                autenticado=true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return autenticado;
+    }
+    @Override
+    public List<Empleado> getEmpleadosPorCargoMySQL(String cargo){
         List<Empleado> empleados = new ArrayList<>();
         DataSource dataSource = MyDataSource.getMySQLDataSource();
 
@@ -184,6 +234,38 @@ public class EmpleadoDB implements AlmacenDatosDB{
             ps.setString(1,cargo);
 
             ResultSet resultSet = ps.executeQuery();
+            Empleado empleado;
+
+            while(resultSet.next()){
+                empleado = new Empleado(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getDate(7),
+                        resultSet.getString(8),
+                        resultSet.getString(11)
+                );
+                empleados.add(empleado);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return empleados;
+    }
+    @Override
+    public List<Empleado> getEmpleadosPorCargoFuncionMySQL(String cargo){
+        List<Empleado> empleados = new ArrayList<>();
+        DataSource dataSource = MyDataSource.getMySQLDataSource();
+
+        String query = "{ call empleadoPorCargo(?) }"; // Es mejor usar el prepared statement para no insertar codigo
+        try(Connection connection = dataSource.getConnection();
+            CallableStatement cs = connection.prepareCall(query)){
+            cs.setString(1,cargo);
+
+            ResultSet resultSet = cs.executeQuery();
             Empleado empleado;
 
             while(resultSet.next()){
