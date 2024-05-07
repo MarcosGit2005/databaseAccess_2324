@@ -9,7 +9,7 @@ public interface AlmacenDatosDB {
     int updateEmpleadoMySQL(Empleado enpleado);
     int deleteEmpleadoMySQL(String DNI);
     Empleado addEmpleadoMySQL(Empleado empleado);
-    Empleado addEmpleadoFuncionMySQL(Empleado empleado);
+    int addEmpleadoFuncionMySQL(Empleado empleado);
     Empleado getEmpleadoMySQL(String DNI);
     boolean authenticateMySQL(String login,String password);
     boolean authenticateFunctionMySQL(String login,String password);

@@ -126,9 +126,10 @@ public class EmpleadoDB implements AlmacenDatosDB{
         return null;
     }
     @Override
-    public Empleado addEmpleadoFuncionMySQL(Empleado empleado) {
+    public int addEmpleadoFuncionMySQL(Empleado empleado) {
         DataSource ds = MyDataSource.getMySQLDataSource();
-        boolean added = false;
+
+        int id=0;
 
         String query = "{ call addEmpleado(?,?,?,?,?,?,?,?,?) }";
 
@@ -143,14 +144,15 @@ public class EmpleadoDB implements AlmacenDatosDB{
             cs.setString(7,empleado.getCargo());
             cs.setString(8,empleado.getDomicilio());
 
-            int id = cs.getInt(9);
+            cs.registerOutParameter(9,Types.INTEGER); // Altamente recomendable
 
-            added = cs.executeUpdate()==1;
+            cs.executeUpdate();
+            id = cs.getInt(9);
 
         } catch (Exception e){
             e.printStackTrace();
         }
-        return added?getEmpleadoMySQL(empleado.getDNI()):null;
+        return id;
     }
 
     @Override
